@@ -5,3 +5,15 @@ api-version: 1.18
 authors: [ TryHardDo ]
 description: This plugin allows you to prevent others from stealing your loot while you mining somewhere. This includes the woodcutting, farming and any other activities which results with breaking something.
 website: https://github.com/TryHardDo
+commands:
+  lootprotect:
+    description: This is the main program of the plugin.
+    permission: lootprotect.use
+    aliases: [ lprotect, lprot ]
+    usage: "§c/<command> [args]"
+    permission-message: "§4You don't have permission to use this command."
+
+permissions:
+  lootprotect.use:
+    description: Permission to use the "lootprotect" command and show the help menu to the player.
+    default: true
