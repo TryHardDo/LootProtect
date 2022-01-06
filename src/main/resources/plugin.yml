@@ -1,0 +1,7 @@
+name: LootProtect
+version: '${project.version}'
+main: dev.tryharddo.lootprotect.LootProtect
+api-version: 1.18
+authors: [ TryHardDo ]
+description: This plugin allows you to prevent others from stealing your loot while you mining somewhere. This includes the woodcutting, farming and any other activities which results with breaking something.
+website: https://github.com/TryHardDo
