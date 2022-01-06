@@ -90,7 +90,8 @@ public class Utils
     {
         for (Map.Entry<UUID, Item> cachePiece : LootProtect.getProtectionCache().entrySet())
         {
-            if (item.equals(cachePiece.getValue())) {
+            if (item.equals(cachePiece.getValue()))
+            {
                 LootProtect.getProtectionCache().remove(cachePiece.getKey(), cachePiece.getValue());
                 return;
             }

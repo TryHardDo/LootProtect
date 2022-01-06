@@ -10,10 +10,10 @@ import java.util.logging.Logger;
 
 public final class LootProtect extends JavaPlugin
 {
-    private static LootProtect instance;
-    private static Logger pluginLogger;
     private static final List<UUID> enabledList = new ArrayList<>();
     private static final HashMap<UUID, Item> protectionCache = new LinkedHashMap<>();
+    private static LootProtect instance;
+    private static Logger pluginLogger;
 
     public static LootProtect getInstance()
     {

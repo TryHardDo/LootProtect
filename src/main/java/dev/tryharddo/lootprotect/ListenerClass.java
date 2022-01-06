@@ -25,21 +25,23 @@ public class ListenerClass implements Listener
     @EventHandler
     public void onPickup(final @NotNull EntityPickupItemEvent e)
     {
-        if (!Utils.isRestrictedItem(e.getItem())) return;
+        if (! Utils.isRestrictedItem(e.getItem())) return;
 
         Item item = e.getItem();
         UUID owner = Utils.getItemOwner(item);
 
         if (owner == null) return;
 
-        if (! (e.getEntity() instanceof Player)) {
+        if (! (e.getEntity() instanceof Player))
+        {
             e.setCancelled(true);
             return;
         }
 
         Player picker = ((Player) e.getEntity());
 
-        if (picker.getUniqueId().equals(owner)) {
+        if (picker.getUniqueId().equals(owner))
+        {
             Utils.removeItemFromCache(item);
             return;
         }
