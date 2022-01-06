@@ -1,17 +1,19 @@
 package dev.tryharddo.lootprotect;
 
 import dev.tryharddo.lootprotect.commands.BaseCommand;
-import dev.tryharddo.lootprotect.commands.Utils;
 import org.bukkit.Bukkit;
+import org.bukkit.entity.Item;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.util.Objects;
+import java.util.*;
 import java.util.logging.Logger;
 
 public final class LootProtect extends JavaPlugin
 {
     private static LootProtect instance;
     private static Logger pluginLogger;
+    private static final List<UUID> enabledList = new ArrayList<>();
+    private static final HashMap<UUID, Item> protectionCache = new LinkedHashMap<>();
 
     public static LootProtect getInstance()
     {
@@ -23,13 +25,21 @@ public final class LootProtect extends JavaPlugin
         return pluginLogger;
     }
 
+    public static List<UUID> getEnabledList()
+    {
+        return enabledList;
+    }
+
+    public static HashMap<UUID, Item> getProtectionCache()
+    {
+        return protectionCache;
+    }
+
     @Override
     public void onEnable()
     {
-        // MAIN SETUP - START -
         instance = this;
         pluginLogger = this.getLogger();
-        // MAIN SETUP - END -
 
         getPluginLogger().info("Setting up the plugin.");
 
@@ -42,7 +52,6 @@ public final class LootProtect extends JavaPlugin
     @Override
     public void onDisable()
     {
-        // If there is a remaining task it should be stopped properly.
         Bukkit.getScheduler().cancelTasks(this);
 
         getPluginLogger().info("Plugin is now disabled.");
